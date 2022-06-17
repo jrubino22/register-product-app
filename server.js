@@ -1,6 +1,7 @@
 require('isomorphic-fetch')
 const dotenv = require('dotenv')
 const Koa = require('koa')
+const mongoose = require('mongoose')
 const next = require('next')
 const {default: createShopifyAuth} = require('@shopify/koa-shopify-auth');
 const {verifyRequest} = require('@shopify/koa-shopify-auth');
@@ -8,6 +9,10 @@ const { default: Shopify, ApiVersion } = require('@shopify/shopify-api');
 const Router = require('koa-router');
 
 dotenv.config();
+
+mongoose.connect(process.env.MONGO_URL, () => {
+    console.log('Connected to Mongo DB')
+})
 
 Shopify.Context.initialize({
     API_KEY: process.env.SHOPIFY_API_KEY,
