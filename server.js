@@ -7,6 +7,9 @@ const {default: createShopifyAuth} = require('@shopify/koa-shopify-auth');
 const {verifyRequest} = require('@shopify/koa-shopify-auth');
 const { default: Shopify, ApiVersion } = require('@shopify/shopify-api');
 const Router = require('koa-router');
+const warrantiesRouter = require('./routes/warrantiesRouter')
+const registeredProductModel = require('./models/registeredProductsModel')
+const bodyParser = require('koa-body')
 
 dotenv.config();
 
@@ -54,7 +57,7 @@ app.prepare().then(() => {
 
     const handleRequest = async (ctx) => {
         await handle(ctx.req, ctx.res);
-        ctx.respond = false;
+        ctx.respond = true;
         ctx.res.statusCode = 200;
     };
 
@@ -64,13 +67,27 @@ app.prepare().then(() => {
         await handleRequest(ctx);
     })
 
-    router.get('(.*)', handleRequest);
+    // router.get('(.*)', handleRequest);
 
     router.get("(/_next/static/.*)", handleRequest);
-    router.get("/_next/webpack-hmr", handleRequest)
+    router.get("/_next/webpack-hmr", handleRequest);
+
+    router.get('(.*)/warranties', ctx => {
+        ctx.body = 'Hi there'
+    })
+  
+    router.post('(.*)/warranties', bodyParser(), async (ctx) => {
+      try { const registeredproduct = new registeredProductModel(ctx.request.body).save();
+       ctx.body = JSON.stringify(registeredproduct)
+      } catch(err){
+        console.log(error)
+      }
+    })
+    
 
     server.use(router.allowedMethods());
     server.use(router.routes());
+
 
     server.listen(port, () => {
         console.log(`Ready on http://localhost:${port}`)

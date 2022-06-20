@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const registeredProductsSchema = new mongoose.Schema({
-    WarrantyId: {
+const registeredProductSchema = new mongoose.Schema({
+    warrantyId: {
         type: String,
         required: true,
     },
@@ -19,6 +19,6 @@ const registeredProductsSchema = new mongoose.Schema({
     },
 })
 
-const SessionModel = mongoose.model("Registered Products", registeredProductsSchema);
+const registeredProductModel = mongoose.model("Registered Products", registeredProductSchema);
 
-module.exports = SessionModel
+module.exports = registeredProductModel
