@@ -4,9 +4,16 @@ const registeredProducts = require('../models/registeredProductsModel')
 
 const warrantiesRouter = new Router()
 
-warrantiesRouter
-    .get('/', (ctx, next) => {
-        ctx.body = 'Hello World'
-    })
-
-module.exports = warrantiesRouter
+// function {
+//     router.get('(.*)/warranties', async (ctx) => {
+//         ctx.body = await registeredProductModel.find()
+//     })
+  
+//     router.post('(.*)/warranties', bodyParser(), async (ctx) => {
+//       try { const registeredproduct = new registeredProductModel(ctx.request.body).save();
+//        ctx.body = JSON.stringify(registeredproduct)
+//       } catch(err){
+//         console.log(error)
+//       }
+//     })
+// }

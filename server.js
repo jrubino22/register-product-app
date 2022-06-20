@@ -72,8 +72,10 @@ app.prepare().then(() => {
     router.get("(/_next/static/.*)", handleRequest);
     router.get("/_next/webpack-hmr", handleRequest);
 
-    router.get('(.*)/warranties', ctx => {
-        ctx.body = 'Hi there'
+   
+
+    router.get('(.*)/warranties', async (ctx) => {
+        ctx.body = await registeredProductModel.find()
     })
   
     router.post('(.*)/warranties', bodyParser(), async (ctx) => {
@@ -84,7 +86,22 @@ app.prepare().then(() => {
       }
     })
     
+    router.get('(.*)/warranties/:id', async (ctx) => {
+        try {
+            const productreg = await registeredProductModel.findById(ctx.params.id);
+            if (!productreg) {
+              ctx.throw(404);
+            }
+            ctx.body = productreg;
+          } catch (err) {
+            if (err.name === 'CastError' || err.name === 'NotFoundError') {
+              ctx.throw(404);
+            }
+            ctx.throw(500);
+          }
+        })
 
+    
     server.use(router.allowedMethods());
     server.use(router.routes());
 
