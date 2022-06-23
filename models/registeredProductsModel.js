@@ -1,10 +1,6 @@
 const mongoose = require('mongoose')
 
 const registeredProductSchema = new mongoose.Schema({
-    warrantyId: {
-        type: Number,
-        required: true,
-    },
     customerEmail: {
         type: String,
         required: true,

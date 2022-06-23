@@ -2,9 +2,9 @@
 
 const Index = ({warranties}) => (
     
-   warranties.map(({warrantyId, customerEmail, product, purchaseLocation}) => (
+   warranties.map(({_id, customerEmail, product, purchaseLocation, claims}) => (
         <>
-        <p key={warrantyId}>Warranty Id: {warrantyId} | Customer Email: {customerEmail} | Product: {product} | Purchase Location: {purchaseLocation}</p>
+        <p key={_id}>Warranty Id: {_id.slice(_id.length - 6)} | Customer Email: {customerEmail} | Product: {product} | Purchase Location: {purchaseLocation} | Claims: {claims}</p>
         </>
     ))
 )
