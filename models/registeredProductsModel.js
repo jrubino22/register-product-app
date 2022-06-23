@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const registeredProductSchema = new mongoose.Schema({
     warrantyId: {
-        type: String,
+        type: Number,
         required: true,
     },
     customerEmail: {
@@ -17,6 +17,10 @@ const registeredProductSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    claims: {
+        type: Number,
+        required: true,
+    }
 })
 
 const registeredProductModel = mongoose.model("Registered Products", registeredProductSchema);

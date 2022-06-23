@@ -10,6 +10,7 @@ const Router = require('koa-router');
 const warrantiesRouter = require('./routes/warrantiesRouter')
 const registeredProductModel = require('./models/registeredProductsModel')
 const bodyParser = require('koa-body')
+const cors = require('@koa/cors')
 
 dotenv.config();
 
@@ -37,6 +38,7 @@ const ACTIVE_SHOPIFY_SHOPS = {};
 
 app.prepare().then(() => {
     const server = new Koa();
+    server.use(cors())
     const router = new Router();
     server.keys = [Shopify.Context.API_SECRET_KEY];
 
