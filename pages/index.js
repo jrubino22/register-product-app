@@ -1,11 +1,15 @@
 
 
 const Index = ({warranties}) => (
+
+  
     
    warranties.map(({_id, customerEmail, product, purchaseLocation, claims}) => (
-        <>
-        <p key={_id}>Warranty Id: {_id.slice(_id.length - 6)} | Customer Email: {customerEmail} | Product: {product} | Purchase Location: {purchaseLocation} | Claims: {claims}</p>
-        </>
+        <><span>
+        <p key={_id}>Warranty Id: {_id.slice(_id.length - 6)} | Customer Email: {customerEmail}
+         | Product: {product} | Purchase Location: {purchaseLocation} | Claims: {claims} 
+          <button onClick={addClaim()}>Add Claim</button></p> 
+        </span></>
     ))
 )
 
@@ -20,4 +24,8 @@ export async function getServerSideProps(){
             warranties: data
         }
     }
+}
+
+function addClaim(props) {
+    props.warranties._id.claims + 1
 }
