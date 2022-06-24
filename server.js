@@ -123,7 +123,7 @@ app.prepare().then(() => {
     })
     router.put('(.*)/warranty/:id', async (ctx) => {
         ctx.body = await registeredProductModel.findByIdAndUpdate(ctx.params.id, 
-           {claim: {Number} + 1})      
+           {$inc: { claims: 1 }})      
     })
     
     server.use(router.allowedMethods());

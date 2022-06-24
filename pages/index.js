@@ -16,7 +16,7 @@ const Index = ({warranties}) => (
 export default Index
 
 export async function getServerSideProps(){
-    const response = await fetch('https://8111-2603-8080-6f00-aa5c-dd1b-88f2-def4-9733.ngrok.io/' + 'warranties')
+    const response = await fetch('https://9df8-2603-8080-6f00-aa5c-dd1b-88f2-def4-9733.ngrok.io/' + 'warranties')
     const data = await response.json()
 
     return {
