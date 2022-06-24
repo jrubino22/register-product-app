@@ -9,6 +9,7 @@ const { default: Shopify, ApiVersion } = require('@shopify/shopify-api');
 const Router = require('koa-router');
 const warrantiesRouter = require('./routes/warrantiesRouter')
 const registeredProductModel = require('./models/registeredProductsModel')
+const serialNumberModel = require('./models/serialNumberModel')
 const bodyParser = require('koa-body')
 const cors = require('@koa/cors')
 
@@ -57,6 +58,7 @@ app.prepare().then(() => {
         }),
     );
 
+
     const handleRequest = async (ctx) => {
         await handle(ctx.req, ctx.res);
         ctx.respond = true;
@@ -80,13 +82,45 @@ app.prepare().then(() => {
         ctx.body = await registeredProductModel.find()
     })
   
-    router.post('(.*)/warranties', bodyParser(), async (ctx) => {
-      try { const registeredproduct = new registeredProductModel(ctx.request.body).save();
+    router.post('(.*)/warranties', bodyParser(), async (ctx) => { 
+        try { const registeredproduct = new registeredProductModel(ctx.request.body).save();
        ctx.body = JSON.stringify(registeredproduct)
       } catch(err){
         console.log(error)
       }
     })
+
+    router.post('(.*)/register/:serial', bodyParser(), async (ctx) => {
+       const serialMatch = await serialNumberModel.find({serialNumber: ctx.params.serial});
+        if(serialMatch.length > 0) {
+            try { 
+                serialNumberModel.findOneAndDelete({ serialNumber: ctx.params.serial }, function (err, docs) {
+                    if (err){
+                        console.log(err)
+                    }
+                    else{
+                        console.log("Deleted serial number : ", docs);
+                    }
+                });
+                const registeredproduct = new registeredProductModel(ctx.request.body).save();
+                ctx.body = JSON.stringify(registeredproduct)
+            } catch(err){
+                console.log(error)
+            }
+        } else try { 
+            ctx.body = "Invalid serial number"
+            } catch(err){
+            console.log(error)
+            }
+      })
+
+    router.post('(.*)/serial', bodyParser(), async (ctx) => {
+        try { const serialNumber = new serialNumberModel(ctx.request.body).save();
+         ctx.body = JSON.stringify(serialNumber)
+        } catch(err){
+          console.log(error)
+        }
+      })
 
     router.get('(.*)/warranties/:email', async (ctx) => {
         try {

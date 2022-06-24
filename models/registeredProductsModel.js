@@ -6,7 +6,7 @@ const registeredProductSchema = new mongoose.Schema({
         required: true,
     },
     serialNumber: {
-        type: Number,
+        type: String,
         required: true,
     },
     product: {
