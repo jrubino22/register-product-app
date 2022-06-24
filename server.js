@@ -87,21 +87,6 @@ app.prepare().then(() => {
         console.log(error)
       }
     })
-    
-    // router.get('(.*)/warranties/:id', async (ctx) => {
-    //     try {
-    //         const productreg = await registeredProductModel.findById(ctx.params.id);
-    //         if (!productreg) {
-    //           ctx.throw(404);
-    //         }
-    //         ctx.body = productreg;
-    //       } catch (err) {
-    //         if (err.name === 'CastError' || err.name === 'NotFoundError') {
-    //           ctx.throw(404);
-    //         }
-    //         ctx.throw(500);
-    //       }
-    //     })
 
     router.get('(.*)/warranties/:email', async (ctx) => {
         try {

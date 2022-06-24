@@ -5,11 +5,19 @@ const registeredProductSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    serialNumber: {
+        type: Number,
+        required: true,
+    },
     product: {
         type: String,
         required: true,
     },
     purchaseLocation: {
+        type: String,
+        required: true,
+    },
+    purchaseAddress: {
         type: String,
         required: true,
     },
