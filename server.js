@@ -142,7 +142,7 @@ app.prepare().then(() => {
     })
     router.put('(.*)/warranty/:id', async (ctx) => {
         ctx.body = await registeredProductModel.findByIdAndUpdate(ctx.params.id, 
-           {$inc: { claims: 1 }})      
+           { warrantyStatus: "inactive" })   
     })
     
     server.use(router.allowedMethods());

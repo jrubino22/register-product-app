@@ -2,23 +2,31 @@
 
 const Index = ({warranties}) => {
 
-//    const increment = ({claims}) => {
-//         if()
-//         claims + 1
-//     }
+    const warrantyButton = async (_id) => {
+
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+        };
+        const response = await fetch(`https://de7e-2603-8080-6f00-aa5c-cd66-faa1-26db-f446.ngrok.io/warranty/${_id}`, requestOptions);
+        await response.json();   
+        location.reload()
+        return false
+    }
+
 
     return(
-   warranties.map(({_id, customerEmail, product, purchaseLocation, claims}) => (
+   warranties.map(({_id, customerEmail, product, purchaseLocation, warrantyStatus}) => (
         <span>
         <p key={_id}><span>Warranty Id: {_id.slice(_id.length - 6)} </span>|<span> Customer Email: {customerEmail} </span>
          |<span> Product: {product} </span> |<span> Purchase Location: {purchaseLocation} </span>
-         |<span key={_id}> Claims: {claims} </span><button key={_id}>Add Claim</button></p> 
+         |<span key={_id}> Warranty Status: {warrantyStatus} </span><button id="wb" onClick={() => warrantyButton(_id)} key={_id}>Warranty Claimed</button></p> 
         </span>
     )))
 }
 
 export async function getServerSideProps(){
-    const response = await fetch('https://9df8-2603-8080-6f00-aa5c-dd1b-88f2-def4-9733.ngrok.io/' + 'warranties')
+    const response = await fetch('https://de7e-2603-8080-6f00-aa5c-cd66-faa1-26db-f446.ngrok.io/' + 'warranties')
     const data = await response.json()
 
     return {
@@ -27,5 +35,6 @@ export async function getServerSideProps(){
         }
     }
 }
+
 
 export default Index

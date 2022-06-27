@@ -21,8 +21,8 @@ const registeredProductSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    claimed: {
-        type: Boolean,
+    warrantyStatus: {
+        type: String,
         required: true,
     }
 })
