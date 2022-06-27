@@ -21,8 +21,8 @@ const registeredProductSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    claims: {
-        type: Number,
+    claimed: {
+        type: Boolean,
         required: true,
     }
 })

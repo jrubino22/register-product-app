@@ -112,7 +112,7 @@ app.prepare().then(() => {
             } catch(err){
             console.log(error)
             }
-      })
+    })
 
     router.post('(.*)/serial', bodyParser(), async (ctx) => {
         try { const serialNumber = new serialNumberModel(ctx.request.body).save();

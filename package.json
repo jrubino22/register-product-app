@@ -10,7 +10,7 @@
     "start": "NODE_ENV=production node server.js",
     "go": "nodemon server.js"
   },
-  "author": "",
+  "author": "Joey Rubino",
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^3.3.0",
