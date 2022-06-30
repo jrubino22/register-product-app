@@ -77,19 +77,12 @@ app.prepare().then(() => {
     router.get("/_next/webpack-hmr", handleRequest);
 
    
-
+    // get all warranties
     router.get('(.*)/warranties', async (ctx) => {
         ctx.body = await registeredProductModel.find()
     })
-  
-    router.post('(.*)/warranties', bodyParser(), async (ctx) => { 
-        try { const registeredproduct = new registeredProductModel(ctx.request.body).save();
-       ctx.body = JSON.stringify(registeredproduct)
-      } catch(err){
-        console.log(error)
-      }
-    })
 
+    // register a warranty
     router.post('(.*)/register/:serial', bodyParser(), async (ctx) => {
        const serialMatch = await serialNumberModel.find({serialNumber: ctx.params.serial});
         if(serialMatch.length > 0) {
@@ -105,15 +98,17 @@ app.prepare().then(() => {
                 const registeredproduct = new registeredProductModel(ctx.request.body).save();
                 ctx.body = JSON.stringify(registeredproduct)
             } catch(err){
-                console.log(error)
+                error.message = "Invalid serial number"
+                console.log(error.message)
             }
         } else try { 
-            ctx.body = "Invalid serial number"
+            error.message = "Invalid serial number"
             } catch(err){
             console.log(error)
             }
     })
 
+    // post a serial number
     router.post('(.*)/serial', bodyParser(), async (ctx) => {
         try { const serialNumber = new serialNumberModel(ctx.request.body).save();
          ctx.body = JSON.stringify(serialNumber)
@@ -122,6 +117,7 @@ app.prepare().then(() => {
         }
       })
 
+    // get all warranties for a single customer
     router.get('(.*)/warranties/:email', async (ctx) => {
         try {
             const productreg = await registeredProductModel.find({customerEmail: ctx.params.email});
@@ -137,14 +133,25 @@ app.prepare().then(() => {
             }
         })
 
+    // get a single warranty by id
     router.get('(.*)/warranty/:id', async (ctx) => {
            ctx.body = await registeredProductModel.findById(ctx.params.id)      
     })
+
+    // update warranty status
     router.put('(.*)/warranty/:id', async (ctx) => {
         ctx.body = await registeredProductModel.findByIdAndUpdate(ctx.params.id, 
            { warrantyStatus: "inactive" })   
     })
     
+    router.post('(.*)/warranties', bodyParser(), async (ctx) => { 
+        try { const registeredproduct = new registeredProductModel(ctx.request.body).save();
+       ctx.body = JSON.stringify(registeredproduct)
+      } catch(err){
+        console.log(error)
+      }
+    })
+
     server.use(router.allowedMethods());
     server.use(router.routes());
 
