@@ -29,7 +29,7 @@ const Index = ({warranties}) => {
 }
 
 export async function getServerSideProps(){
-    const response = await fetch('https://7297-2603-8080-6f00-aa5c-ad91-4d5c-c212-105e.ngrok.io/' + 'warranties')
+    const response = await fetch('https://v-syndicate-warranty-app.herokuapp.com/warranties')
     const data = await response.json()
 
     return {

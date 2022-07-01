@@ -30,7 +30,7 @@ Shopify.Context.initialize({
 
 });
 
-const port = parseInt(process.env.PORT, 10) || 3000;
+const port = 5000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev })
 const handle = app.getRequestHandler();
