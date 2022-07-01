@@ -7,6 +7,6 @@ const serialNumberSchema = new mongoose.Schema({
     }
 })
 
-const serialNumberModel = mongoose.model("serial numbers", serialNumberSchema);
+const serialNumberModel = mongoose.model("serial_numbers", serialNumberSchema);
 
 module.exports = serialNumberModel
