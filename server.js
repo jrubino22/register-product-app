@@ -30,7 +30,7 @@ Shopify.Context.initialize({
 
 });
 
-const port = 5000;
+const port = 'https://v-syndicate-warranty-app.herokuapp.com';
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev })
 const handle = app.getRequestHandler();
