@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "go": "nodemon server.js",
-    "web": "npm start"
+    "web": "npm start",
+    "prod": "NODE_ENV=production node server.js"
   },
   "author": "Joey Rubino",
   "license": "ISC",
