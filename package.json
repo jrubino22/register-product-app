@@ -7,10 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "node server.js",
     "go": "nodemon server.js",
-    "web": "npm start",
-    "prod": "NODE_ENV=production node server.js"
+    "web": "npm start"
   },
   "author": "Joey Rubino",
   "license": "ISC",
