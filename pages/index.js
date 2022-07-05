@@ -8,7 +8,7 @@ const Index = ({warranties}) => {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
         };
-        const response = await fetch(`https://v-syndicate-warranty-app.herokuapp.com/warranty/${_id}`, requestOptions);
+        const response = await fetch(`http://localhost:${(process.env.PORT || 5000)}/warranty/${_id}`, requestOptions);
         await response.json();   
         location.reload()
         return false
@@ -29,7 +29,7 @@ const Index = ({warranties}) => {
 }
 
 export async function getServerSideProps(){
-    const response = await fetch(`https://v-syndicate-warranty-app.herokuapp.com/warranties`)
+    const response = await fetch(`http://localhost:${(process.env.PORT || 5000)}/warranties`)
     const data = await response.json()
 
     return {
