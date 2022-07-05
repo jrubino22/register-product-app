@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "heroku-nextjs-build",
     "dev": "node server.js",
     "build": "next build",
-    "start": "SET NODE_ENV='production' & node server.js",
+    "start": "SET NODE_ENV='production' & next start -p $PORT",
     "go": "nodemon server.js",
     "web": "npm start"
   },
