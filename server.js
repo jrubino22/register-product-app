@@ -32,7 +32,8 @@ Shopify.Context.initialize({
 
 const port = (process.env.PORT || 5000);
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev })
+const prod = process.env.NODE_ENV === 'production';
+const app = next({ prod });
 const handle = app.getRequestHandler();
 
 const ACTIVE_SHOPIFY_SHOPS = {};
