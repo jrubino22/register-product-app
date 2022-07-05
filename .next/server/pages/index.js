@@ -1,103 +1,35 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 405;
-exports.ids = [405];
+exports.id = "pages/index";
+exports.ids = ["pages/index"];
 exports.modules = {
 
-/***/ 573:
+/***/ "./pages/index.js":
+/*!************************!*\
+  !*** ./pages/index.js ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   \"getServerSideProps\": () => (/* binding */ getServerSideProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n\nconst Index = ({ warranties  })=>{\n    const warrantyButton = async (_id)=>{\n        const requestOptions = {\n            method: \"PUT\",\n            headers: {\n                \"Content-Type\": \"application/json\"\n            }\n        };\n        const response = await fetch(`https://v-syndicate-warranty-app.herokuapp.com/warranty/${_id}`, requestOptions);\n        await response.json();\n        location.reload();\n        return false;\n    };\n    return warranties.map(({ _id , customerEmail , product , purchaseLocation , warrantyStatus  })=>/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                        children: [\n                            \"Warranty Id: \",\n                            _id.slice(_id.length - 6),\n                            \" \"\n                        ]\n                    }, void 0, true, {\n                        fileName: \"C:\\\\Users\\\\jrubino\\\\Desktop\\\\code\\\\product-registration\\\\warranty-registration-app\\\\pages\\\\index.js\",\n                        lineNumber: 21,\n                        columnNumber: 22\n                    }, undefined),\n                    \"|\",\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                        children: [\n                            \" Customer Email: \",\n                            customerEmail,\n                            \" \"\n                        ]\n                    }, void 0, true, {\n                        fileName: \"C:\\\\Users\\\\jrubino\\\\Desktop\\\\code\\\\product-registration\\\\warranty-registration-app\\\\pages\\\\index.js\",\n                        lineNumber: 21,\n                        columnNumber: 77\n                    }, undefined),\n                    \"|\",\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                        children: [\n                            \" Product: \",\n                            product,\n                            \" \"\n                        ]\n                    }, void 0, true, {\n                        fileName: \"C:\\\\Users\\\\jrubino\\\\Desktop\\\\code\\\\product-registration\\\\warranty-registration-app\\\\pages\\\\index.js\",\n                        lineNumber: 22,\n                        columnNumber: 11\n                    }, undefined),\n                    \" |\",\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                        children: [\n                            \" Purchase Location: \",\n                            purchaseLocation,\n                            \" \"\n                        ]\n                    }, void 0, true, {\n                        fileName: \"C:\\\\Users\\\\jrubino\\\\Desktop\\\\code\\\\product-registration\\\\warranty-registration-app\\\\pages\\\\index.js\",\n                        lineNumber: 22,\n                        columnNumber: 46\n                    }, undefined),\n                    \"|\",\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                        children: [\n                            \" Warranty Status: \",\n                            warrantyStatus,\n                            \" \"\n                        ]\n                    }, _id, true, {\n                        fileName: \"C:\\\\Users\\\\jrubino\\\\Desktop\\\\code\\\\product-registration\\\\warranty-registration-app\\\\pages\\\\index.js\",\n                        lineNumber: 23,\n                        columnNumber: 11\n                    }, undefined),\n                    warrantyStatus === \"active\" && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                        id: \"wb\",\n                        onClick: ()=>warrantyButton(_id)\n                        ,\n                        children: \"Warranty Claimed\"\n                    }, _id, false, {\n                        fileName: \"C:\\\\Users\\\\jrubino\\\\Desktop\\\\code\\\\product-registration\\\\warranty-registration-app\\\\pages\\\\index.js\",\n                        lineNumber: 25,\n                        columnNumber: 11\n                    }, undefined)\n                ]\n            }, _id, true, {\n                fileName: \"C:\\\\Users\\\\jrubino\\\\Desktop\\\\code\\\\product-registration\\\\warranty-registration-app\\\\pages\\\\index.js\",\n                lineNumber: 21,\n                columnNumber: 9\n            }, undefined)\n        }, void 0, false, {\n            fileName: \"C:\\\\Users\\\\jrubino\\\\Desktop\\\\code\\\\product-registration\\\\warranty-registration-app\\\\pages\\\\index.js\",\n            lineNumber: 20,\n            columnNumber: 9\n        }, undefined)\n    );\n};\nasync function getServerSideProps() {\n    const response = await fetch(`https://v-syndicate-warranty-app.herokuapp.com/warranties`);\n    const data = await response.json();\n    return {\n        props: {\n            warranties: data\n        }\n    };\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9pbmRleC5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7O0FBRUE7QUFBQSxNQUFNQSxLQUFLLEdBQUcsQ0FBQyxFQUFDQyxVQUFVLEdBQUMsR0FBSztJQUU1QixNQUFNQyxjQUFjLEdBQUcsT0FBT0MsR0FBRyxHQUFLO1FBRWxDLE1BQU1DLGNBQWMsR0FBRztZQUNuQkMsTUFBTSxFQUFFLEtBQUs7WUFDYkMsT0FBTyxFQUFFO2dCQUFFLGNBQWMsRUFBRSxrQkFBa0I7YUFBRTtTQUNsRDtRQUNELE1BQU1DLFFBQVEsR0FBRyxNQUFNQyxLQUFLLENBQUMsQ0FBQyx3REFBd0QsRUFBRUwsR0FBRyxDQUFDLENBQUMsRUFBRUMsY0FBYyxDQUFDO1FBQzlHLE1BQU1HLFFBQVEsQ0FBQ0UsSUFBSSxFQUFFLENBQUM7UUFDdEJDLFFBQVEsQ0FBQ0MsTUFBTSxFQUFFO1FBQ2pCLE9BQU8sS0FBSztLQUNmO0lBR0QsT0FDRFYsVUFBVSxDQUFDVyxHQUFHLENBQUMsQ0FBQyxFQUFDVCxHQUFHLEdBQUVVLGFBQWEsR0FBRUMsT0FBTyxHQUFFQyxnQkFBZ0IsR0FBRUMsY0FBYyxHQUFDLGlCQUMxRSw4REFBQ0MsTUFBSTtzQkFDTCw0RUFBQ0MsR0FBQzs7a0NBQVcsOERBQUNELE1BQUk7OzRCQUFDLGVBQWE7NEJBQUNkLEdBQUcsQ0FBQ2dCLEtBQUssQ0FBQ2hCLEdBQUcsQ0FBQ2lCLE1BQU0sR0FBRyxDQUFDLENBQUM7NEJBQUMsR0FBQzs7Ozs7O2lDQUFPO29CQUFBLEdBQUM7a0NBQUEsOERBQUNILE1BQUk7OzRCQUFDLG1CQUFpQjs0QkFBQ0osYUFBYTs0QkFBQyxHQUFDOzs7Ozs7aUNBQU87b0JBQUEsR0FDaEg7a0NBQUEsOERBQUNJLE1BQUk7OzRCQUFDLFlBQVU7NEJBQUNILE9BQU87NEJBQUMsR0FBQzs7Ozs7O2lDQUFPO29CQUFBLElBQUU7a0NBQUEsOERBQUNHLE1BQUk7OzRCQUFDLHNCQUFvQjs0QkFBQ0YsZ0JBQWdCOzRCQUFDLEdBQUM7Ozs7OztpQ0FBTztvQkFBQSxHQUN2RjtrQ0FBQSw4REFBQ0UsTUFBSTs7NEJBQVcsb0JBQWtCOzRCQUFDRCxjQUFjOzRCQUFDLEdBQUM7O3VCQUF4Q2IsR0FBRzs7OztpQ0FBNEM7b0JBQzFEYSxjQUFjLEtBQUssUUFBUSxrQkFDM0IsOERBQUNLLFFBQU07d0JBQUNDLEVBQUUsRUFBQyxJQUFJO3dCQUFDQyxPQUFPLEVBQUUsSUFBTXJCLGNBQWMsQ0FBQ0MsR0FBRyxDQUFDO3dCQUFBO2tDQUFZLGtCQUFnQjt1QkFBckJBLEdBQUc7Ozs7aUNBQTJCOztlQUpqRkEsR0FBRzs7Ozt5QkFLTDs7Ozs7cUJBQ0M7SUFDVixDQUFDLENBQUM7Q0FDTjtBQUVNLGVBQWVxQixrQkFBa0IsR0FBRTtJQUN0QyxNQUFNakIsUUFBUSxHQUFHLE1BQU1DLEtBQUssQ0FBQyxDQUFDLHlEQUF5RCxDQUFDLENBQUM7SUFDekYsTUFBTWlCLElBQUksR0FBRyxNQUFNbEIsUUFBUSxDQUFDRSxJQUFJLEVBQUU7SUFFbEMsT0FBTztRQUNIaUIsS0FBSyxFQUFFO1lBQ0h6QixVQUFVLEVBQUV3QixJQUFJO1NBQ25CO0tBQ0o7Q0FDSjtBQUdELGlFQUFlekIsS0FBSyIsInNvdXJjZXMiOlsid2VicGFjazovL3dhcnJhbnR5LXJlZ2lzdHJhdGlvbi1hcHAvLi9wYWdlcy9pbmRleC5qcz9iZWU3Il0sInNvdXJjZXNDb250ZW50IjpbIlxyXG5cclxuY29uc3QgSW5kZXggPSAoe3dhcnJhbnRpZXN9KSA9PiB7XHJcblxyXG4gICAgY29uc3Qgd2FycmFudHlCdXR0b24gPSBhc3luYyAoX2lkKSA9PiB7XHJcblxyXG4gICAgICAgIGNvbnN0IHJlcXVlc3RPcHRpb25zID0ge1xyXG4gICAgICAgICAgICBtZXRob2Q6ICdQVVQnLFxyXG4gICAgICAgICAgICBoZWFkZXJzOiB7ICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfSxcclxuICAgICAgICB9O1xyXG4gICAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goYGh0dHBzOi8vdi1zeW5kaWNhdGUtd2FycmFudHktYXBwLmhlcm9rdWFwcC5jb20vd2FycmFudHkvJHtfaWR9YCwgcmVxdWVzdE9wdGlvbnMpO1xyXG4gICAgICAgIGF3YWl0IHJlc3BvbnNlLmpzb24oKTsgICBcclxuICAgICAgICBsb2NhdGlvbi5yZWxvYWQoKVxyXG4gICAgICAgIHJldHVybiBmYWxzZVxyXG4gICAgfVxyXG5cclxuXHJcbiAgICByZXR1cm4oXHJcbiAgIHdhcnJhbnRpZXMubWFwKCh7X2lkLCBjdXN0b21lckVtYWlsLCBwcm9kdWN0LCBwdXJjaGFzZUxvY2F0aW9uLCB3YXJyYW50eVN0YXR1c30pID0+IChcclxuICAgICAgICA8c3Bhbj5cclxuICAgICAgICA8cCBrZXk9e19pZH0+PHNwYW4+V2FycmFudHkgSWQ6IHtfaWQuc2xpY2UoX2lkLmxlbmd0aCAtIDYpfSA8L3NwYW4+fDxzcGFuPiBDdXN0b21lciBFbWFpbDoge2N1c3RvbWVyRW1haWx9IDwvc3Bhbj5cclxuICAgICAgICAgfDxzcGFuPiBQcm9kdWN0OiB7cHJvZHVjdH0gPC9zcGFuPiB8PHNwYW4+IFB1cmNoYXNlIExvY2F0aW9uOiB7cHVyY2hhc2VMb2NhdGlvbn0gPC9zcGFuPlxyXG4gICAgICAgICB8PHNwYW4ga2V5PXtfaWR9PiBXYXJyYW50eSBTdGF0dXM6IHt3YXJyYW50eVN0YXR1c30gPC9zcGFuPiAgICAgICAgIFxyXG4gICAgICAgICB7d2FycmFudHlTdGF0dXMgPT09IFwiYWN0aXZlXCIgJiZcclxuICAgICAgICAgIDxidXR0b24gaWQ9XCJ3YlwiIG9uQ2xpY2s9eygpID0+IHdhcnJhbnR5QnV0dG9uKF9pZCl9IGtleT17X2lkfT5XYXJyYW50eSBDbGFpbWVkPC9idXR0b24+XHJcbiAgICAgICAgIH08L3A+IFxyXG4gICAgICAgIDwvc3Bhbj5cclxuICAgICkpKVxyXG59XHJcblxyXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZ2V0U2VydmVyU2lkZVByb3BzKCl7XHJcbiAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGBodHRwczovL3Ytc3luZGljYXRlLXdhcnJhbnR5LWFwcC5oZXJva3VhcHAuY29tL3dhcnJhbnRpZXNgKVxyXG4gICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmpzb24oKVxyXG5cclxuICAgIHJldHVybiB7XHJcbiAgICAgICAgcHJvcHM6IHtcclxuICAgICAgICAgICAgd2FycmFudGllczogZGF0YVxyXG4gICAgICAgIH1cclxuICAgIH1cclxufVxyXG5cclxuXHJcbmV4cG9ydCBkZWZhdWx0IEluZGV4Il0sIm5hbWVzIjpbIkluZGV4Iiwid2FycmFudGllcyIsIndhcnJhbnR5QnV0dG9uIiwiX2lkIiwicmVxdWVzdE9wdGlvbnMiLCJtZXRob2QiLCJoZWFkZXJzIiwicmVzcG9uc2UiLCJmZXRjaCIsImpzb24iLCJsb2NhdGlvbiIsInJlbG9hZCIsIm1hcCIsImN1c3RvbWVyRW1haWwiLCJwcm9kdWN0IiwicHVyY2hhc2VMb2NhdGlvbiIsIndhcnJhbnR5U3RhdHVzIiwic3BhbiIsInAiLCJzbGljZSIsImxlbmd0aCIsImJ1dHRvbiIsImlkIiwib25DbGljayIsImdldFNlcnZlclNpZGVQcm9wcyIsImRhdGEiLCJwcm9wcyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/index.js\n");
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ pages),
-  "getServerSideProps": () => (/* binding */ getServerSideProps)
-});
+/***/ }),
 
-;// CONCATENATED MODULE: external "react/jsx-runtime"
-const jsx_runtime_namespaceObject = require("react/jsx-runtime");
-;// CONCATENATED MODULE: ./pages/index.js
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
+/***/ ((module) => {
 
-const Index = ({ warranties  })=>{
-    const warrantyButton = async (_id)=>{
-        const requestOptions = {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        };
-        const response = await fetch(`https://v-syndicate-warranty-app.herokuapp.com/warranty/${_id}`, requestOptions);
-        await response.json();
-        location.reload();
-        return false;
-    };
-    return warranties.map(({ _id , customerEmail , product , purchaseLocation , warrantyStatus  })=>/*#__PURE__*/ jsx_runtime_namespaceObject.jsx("span", {
-            children: /*#__PURE__*/ (0,jsx_runtime_namespaceObject.jsxs)("p", {
-                children: [
-                    /*#__PURE__*/ (0,jsx_runtime_namespaceObject.jsxs)("span", {
-                        children: [
-                            "Warranty Id: ",
-                            _id.slice(_id.length - 6),
-                            " "
-                        ]
-                    }),
-                    "|",
-                    /*#__PURE__*/ (0,jsx_runtime_namespaceObject.jsxs)("span", {
-                        children: [
-                            " Customer Email: ",
-                            customerEmail,
-                            " "
-                        ]
-                    }),
-                    "|",
-                    /*#__PURE__*/ (0,jsx_runtime_namespaceObject.jsxs)("span", {
-                        children: [
-                            " Product: ",
-                            product,
-                            " "
-                        ]
-                    }),
-                    " |",
-                    /*#__PURE__*/ (0,jsx_runtime_namespaceObject.jsxs)("span", {
-                        children: [
-                            " Purchase Location: ",
-                            purchaseLocation,
-                            " "
-                        ]
-                    }),
-                    "|",
-                    /*#__PURE__*/ (0,jsx_runtime_namespaceObject.jsxs)("span", {
-                        children: [
-                            " Warranty Status: ",
-                            warrantyStatus,
-                            " "
-                        ]
-                    }, _id),
-                    warrantyStatus === "active" && /*#__PURE__*/ jsx_runtime_namespaceObject.jsx("button", {
-                        id: "wb",
-                        onClick: ()=>warrantyButton(_id)
-                        ,
-                        children: "Warranty Claimed"
-                    }, _id)
-                ]
-            }, _id)
-        })
-    );
-};
-async function getServerSideProps() {
-    const response = await fetch(`https://v-syndicate-warranty-app.herokuapp.com/warranties`);
-    const data = await response.json();
-    return {
-        props: {
-            warranties: data
-        }
-    };
-}
-/* harmony default export */ const pages = (Index);
-
+module.exports = require("react/jsx-dev-runtime");
 
 /***/ })
 
@@ -108,7 +40,7 @@ async function getServerSideProps() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(573));
+var __webpack_exports__ = (__webpack_exec__("./pages/index.js"));
 module.exports = __webpack_exports__;
 
 })();
