@@ -8,7 +8,7 @@ const Index = ({warranties}) => {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
         };
-        const response = await fetch(`http://localhost:5000/warranty/${_id}`, requestOptions);
+        const response = await fetch(`https://1ac2-2603-8080-6f00-aa5c-a4dd-21e3-d224-eb35.ngrok.io/warranty/${_id}`, requestOptions);
         await response.json();   
         location.reload()
         return false
@@ -29,7 +29,7 @@ const Index = ({warranties}) => {
 }
 
 export async function getServerSideProps(){
-    const response = await fetch(`http://localhost:5000/warranties`)
+    const response = await fetch(`https://1ac2-2603-8080-6f00-aa5c-a4dd-21e3-d224-eb35.ngrok.io/warranties`)
     const data = await response.json()
 
     return {
