@@ -152,6 +152,15 @@ app.prepare().then(() => {
         console.log(error)
       }
     })
+    //keep dynos running
+    function keepAwake(url){
+        setInterval(async function(){
+          const response = await fetch(url);
+          response
+        }, 5*60*1000);     
+      }
+       keepAwake('https://v-syndicate-warranty-app.herokuapp.com')
+
 
     server.use(router.allowedMethods());
     server.use(router.routes());
