@@ -72,19 +72,19 @@ app.prepare().then(() => {
         await handleRequest(ctx);
     })
 
-    // router.get('(.*)', handleRequest);
+    
 
     router.get("(/_next/static/.*)", handleRequest);
     router.get("/_next/webpack-hmr", handleRequest);
 
    
     // get all warranties
-    router.get('(.*)/warranties', async (ctx) => {
+    router.get('/warranties', async (ctx) => {
         ctx.body = await registeredProductModel.find()
     })
 
     // register a warranty
-    router.post('(.*)/register/:serial', bodyParser(), async (ctx) => {
+    router.post('/register/:serial', bodyParser(), async (ctx) => {
        const serialMatch = await serialNumberModel.find({serialNumber: ctx.params.serial});
         if(serialMatch.length > 0) {
             try { 
@@ -110,7 +110,7 @@ app.prepare().then(() => {
     })
 
     // post a serial number
-    router.post('(.*)/serial', bodyParser(), async (ctx) => {
+    router.post('/serial', bodyParser(), async (ctx) => {
         try { const serialNumber = new serialNumberModel(ctx.request.body).save();
          ctx.body = JSON.stringify(serialNumber)
         } catch(err){
@@ -119,7 +119,7 @@ app.prepare().then(() => {
       })
 
     // get all warranties for a single customer
-    router.get('(.*)/warranties-customer/:email', async (ctx) => {
+    router.get('/warranties-customer/:email', async (ctx) => {
         try {
             const productreg = await registeredProductModel.find({customerEmail: ctx.params.email});
             if (!productreg) {
@@ -135,17 +135,17 @@ app.prepare().then(() => {
         })
 
     // get a single warranty by id
-    router.get('(.*)/warranty/:id', async (ctx) => {
+    router.get('/warranty/:id', async (ctx) => {
            ctx.body = await registeredProductModel.findById(ctx.params.id)      
     })
 
     // update warranty status
-    router.put('(.*)/warranty/:id', async (ctx) => {
+    router.put('/warranty/:id', async (ctx) => {
         ctx.body = await registeredProductModel.findByIdAndUpdate(ctx.params.id, 
            { warrantyStatus: "inactive" })   
     })
     
-    router.post('(.*)/warranties', bodyParser(), async (ctx) => { 
+    router.post('/warranties', bodyParser(), async (ctx) => { 
         try { const registeredproduct = new registeredProductModel(ctx.request.body).save();
        ctx.body = JSON.stringify(registeredproduct)
       } catch(err){
@@ -161,7 +161,7 @@ app.prepare().then(() => {
       }
        keepAwake('https://v-syndicate-warranty-app.herokuapp.com')
 
-
+    router.get('(.*)', handleRequest);
     server.use(router.allowedMethods());
     server.use(router.routes());
 
