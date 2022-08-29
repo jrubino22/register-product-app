@@ -58,6 +58,24 @@ app.prepare().then(() => {
             },
         }),
     );
+    server.use(
+        verifyRequest({
+          // path to redirect to if verification fails
+          // defaults to '/auth'
+          authRoute: '/auth',
+          // path to redirect to if verification fails and there is no shop on the query
+          // defaults to '/auth'
+          fallbackRoute: '/install',
+          // which access mode is being used
+          // defaults to 'online'
+          accessMode: 'offline',
+          // if false, redirect the user to OAuth. If true, send back a 403 with the following headers:
+          //  - X-Shopify-API-Request-Failure-Reauthorize: '1'
+          //  - X-Shopify-API-Request-Failure-Reauthorize-Url: '<auth_url_path>'
+          // defaults to false
+          returnHeader: true,
+        }),
+      );
 
 
     const handleRequest = async (ctx) => {
