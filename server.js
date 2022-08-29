@@ -89,8 +89,6 @@ app.prepare().then(() => {
         await handleRequest(ctx);
     })
 
-    router.get('(.*)', handleRequest);
-
     router.get("(/_next/static/.*)", handleRequest);
     router.get("/_next/webpack-hmr", handleRequest);
 
@@ -178,7 +176,7 @@ app.prepare().then(() => {
       }
        keepAwake('https://v-syndicate-warranty-app.herokuapp.com')
 
-
+    router.get('(.*)', handleRequest);
     server.use(router.allowedMethods());
     server.use(router.routes());
 
