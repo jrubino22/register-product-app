@@ -119,7 +119,7 @@ app.prepare().then(() => {
       })
 
     // get all warranties for a single customer
-    router.get('(.*)/warranties/:email', async (ctx) => {
+    router.get('(.*)/warranties-customer/:email', async (ctx) => {
         try {
             const productreg = await registeredProductModel.find({customerEmail: ctx.params.email});
             if (!productreg) {
